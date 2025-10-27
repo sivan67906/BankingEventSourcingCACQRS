@@ -13,8 +13,7 @@ public static class MartenConfiguration
         services.AddMarten(options =>
         {
             options.Connection(connectionString ?? "Host=localhost;Database=BankingES;Username=postgres;Password=postgres");
-            options.UseDefaultSerialization(serializerType: SerializerType.SystemTextJson);
-            options.Events.StreamIdentity = StreamIdentity.AsString;
+            options.UseSystemTextJsonForSerialization();
         }).UseLightweightSessions();
 
         return services;

@@ -30,7 +30,7 @@ public class MartenEventStore : IEventStore
             .Select(x => x.StreamKey)
             .Distinct()
             .ToListAsync(cancellationToken);
-        return streams;
+        return streams.ToList();
     }
 
     public async Task RebuildProjectionsAsync(CancellationToken cancellationToken = default)
